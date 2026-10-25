@@ -125,3 +125,48 @@ return Object.values(group)
 }
 
 console.log(anagram(arrayAnagram))
+
+// 7) count a how many each character in string
+
+
+const str = "hello world"
+
+const countChar = (str)=>{
+    const arrStr = str.split("")
+
+    const result = arrStr.reduce((acc,cur)=>{
+        acc[cur] = (acc[cur] || 0)+1
+        return acc
+    },{})
+
+    return result 
+
+}
+
+console.log(countChar(str))
+
+// maxmimum repeating letter 
+
+const str = "hello world"
+
+const countChar = (str)=>{
+    const arrStr = str.split("")
+
+    const result = arrStr.reduce((acc,cur)=>{
+        acc[cur] = (acc[cur] || 0)+1 // if the current character already exists in the accumulator object, increment its count by 1, otherwise set its count to 1
+        return acc // return the updated accumulator object
+    },{})
+let maxValue =0
+let maxletter = ""
+for(let ltr in result){
+    if(result[ltr]> maxValue){ // if the count of the current character is greater than the current maximum value, update the maximum value and the corresponding letter
+        maxValue = result[ltr] // update the maximum value to the count of the current character
+        maxletter = ltr // update the maximum letter to the current character
+    }
+
+
+}
+return maxletter
+}
+
+console.log(countChar(str))
